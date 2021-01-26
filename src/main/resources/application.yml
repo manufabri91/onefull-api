@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: benefit
+  jpa:
+    hibernate:
+      ddl-auto: update
