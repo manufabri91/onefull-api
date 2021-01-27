@@ -1,4 +1,4 @@
-package com.onefull.benefitapi.dto;
+package com.onefull.api.dto;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.onefull.benefitapi.controller;
+package com.onefull.api.controller;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.onefull.benefitapi.dto.LocalityDto;
-import com.onefull.benefitapi.service.LocalityService;
+import com.onefull.api.dto.LocalityDto;
+import com.onefull.api.service.LocalityService;
 
 @RestController
 @RequestMapping("/locality")

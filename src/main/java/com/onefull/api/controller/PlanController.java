@@ -1,4 +1,4 @@
-package com.onefull.benefitapi.controller;
+package com.onefull.api.controller;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.onefull.benefitapi.dto.PlanRequestDto;
-import com.onefull.benefitapi.dto.PlanResponseDto;
-import com.onefull.benefitapi.service.PlanService;
+import com.onefull.api.dto.PlanRequestDto;
+import com.onefull.api.dto.PlanResponseDto;
+import com.onefull.api.service.PlanService;
 
 @RestController
 @RequestMapping("/plan")

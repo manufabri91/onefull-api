@@ -1,4 +1,4 @@
-package com.onefull.benefitapi.service;
+package com.onefull.api.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,9 +10,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.onefull.benefitapi.dto.LocalityDto;
-import com.onefull.benefitapi.model.Locality;
-import com.onefull.benefitapi.repository.LocalityRepository;
+import com.onefull.api.dto.LocalityDto;
+import com.onefull.api.model.Locality;
+import com.onefull.api.repository.LocalityRepository;
 
 @Service
 public class LocalityServiceImpl implements LocalityService {

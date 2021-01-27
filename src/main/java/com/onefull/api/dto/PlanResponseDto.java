@@ -1,8 +1,8 @@
-package com.onefull.benefitapi.dto;
+package com.onefull.api.dto;
 
 import java.util.List;
 
-import com.onefull.benefitapi.model.Locality;
+import com.onefull.api.model.Locality;
 
 public class PlanResponseDto {
 	private Long id;

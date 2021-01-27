@@ -1,8 +1,8 @@
-package com.onefull.benefitapi.repository;
+package com.onefull.api.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.onefull.benefitapi.model.BenefitType;
+import com.onefull.api.model.BenefitType;
 
 public interface BenefitTypeRepository extends JpaRepository<BenefitType, Long> {
 

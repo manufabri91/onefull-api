@@ -1,4 +1,4 @@
-package com.onefull.benefitapi.exception;
+package com.onefull.api.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.onefull.benefitapi.model.ErrorModel;
+import com.onefull.api.model.ErrorModel;
 
 import javax.persistence.EntityNotFoundException;
 

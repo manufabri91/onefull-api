@@ -1,8 +1,8 @@
-package com.onefull.benefitapi.service;
+package com.onefull.api.service;
 
 import java.util.List;
 
-import com.onefull.benefitapi.dto.LocalityDto;
+import com.onefull.api.dto.LocalityDto;
 
 public interface LocalityService {
 

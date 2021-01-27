@@ -1,4 +1,4 @@
-package com.onefull.benefitapi.service;
+package com.onefull.api.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,13 +10,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.onefull.benefitapi.dto.BenefitRequestDto;
-import com.onefull.benefitapi.dto.BenefitResponseDto;
-import com.onefull.benefitapi.model.Benefit;
-import com.onefull.benefitapi.repository.BenefitRepository;
-import com.onefull.benefitapi.repository.BenefitTypeRepository;
-import com.onefull.benefitapi.repository.LocalityRepository;
-import com.onefull.benefitapi.repository.SupplierRepository;
+import com.onefull.api.dto.BenefitRequestDto;
+import com.onefull.api.dto.BenefitResponseDto;
+import com.onefull.api.model.Benefit;
+import com.onefull.api.repository.BenefitRepository;
+import com.onefull.api.repository.BenefitTypeRepository;
+import com.onefull.api.repository.LocalityRepository;
+import com.onefull.api.repository.SupplierRepository;
 
 @Service
 public class BenefitServiceImpl implements BenefitService {

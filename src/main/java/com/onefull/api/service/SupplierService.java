@@ -1,9 +1,9 @@
-package com.onefull.benefitapi.service;
+package com.onefull.api.service;
 
 import java.util.List;
 
-import com.onefull.benefitapi.dto.BenefitResponseDto;
-import com.onefull.benefitapi.dto.SupplierDto;
+import com.onefull.api.dto.BenefitResponseDto;
+import com.onefull.api.dto.SupplierDto;
 
 public interface SupplierService {
 	

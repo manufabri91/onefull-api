@@ -1,4 +1,4 @@
-package com.onefull.benefitapi.model;
+package com.onefull.api.model;
 
 import java.time.LocalDateTime;
 import org.springframework.http.HttpStatus;

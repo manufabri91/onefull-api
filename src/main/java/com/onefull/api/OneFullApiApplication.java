@@ -1,4 +1,4 @@
-package com.onefull.benefitapi;
+package com.onefull.api;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 
 
 @SpringBootApplication
-public class BenefitApiApplication {
+public class OneFullApiApplication {
 	
 	@Bean
     public ModelMapper modelMapper() {
@@ -15,7 +15,7 @@ public class BenefitApiApplication {
     }
 
 	public static void main(String[] args) {
-		SpringApplication.run(BenefitApiApplication.class, args);
+		SpringApplication.run(OneFullApiApplication.class, args);
 	}
 
 }

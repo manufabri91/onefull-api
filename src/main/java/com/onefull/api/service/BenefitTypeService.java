@@ -1,8 +1,8 @@
-package com.onefull.benefitapi.service;
+package com.onefull.api.service;
 
 import java.util.List;
 
-import com.onefull.benefitapi.dto.BenefitTypeDto;
+import com.onefull.api.dto.BenefitTypeDto;
 
 public interface BenefitTypeService {
 	BenefitTypeDto save(BenefitTypeDto benefitTypeRequest);

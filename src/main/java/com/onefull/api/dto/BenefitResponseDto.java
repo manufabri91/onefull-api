@@ -1,10 +1,10 @@
-package com.onefull.benefitapi.dto;
+package com.onefull.api.dto;
 
 import java.time.LocalDate;
 
-import com.onefull.benefitapi.model.BenefitType;
-import com.onefull.benefitapi.model.Locality;
-import com.onefull.benefitapi.model.Supplier;
+import com.onefull.api.model.BenefitType;
+import com.onefull.api.model.Locality;
+import com.onefull.api.model.Supplier;
 
 
 public class BenefitResponseDto {
