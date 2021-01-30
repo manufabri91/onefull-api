@@ -1,6 +1,6 @@
 spring:
   application:
-    name: onefull-api
+    name: onefull
   jpa:
     hibernate:
       ddl-auto: update
