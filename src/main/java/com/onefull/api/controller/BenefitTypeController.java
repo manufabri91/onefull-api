@@ -38,7 +38,7 @@ public class BenefitTypeController {
 
 	@GetMapping("/{benefitTypeId}")
     @ResponseStatus(HttpStatus.OK)
-	public BenefitTypeDto getAllBenefitTypes(Long benefitTypeId) {
+	public BenefitTypeDto getAllBenefitTypes(@PathVariable Long benefitTypeId) {
 		return this.benefitTypeService.fetchById(benefitTypeId);
 	}
 	

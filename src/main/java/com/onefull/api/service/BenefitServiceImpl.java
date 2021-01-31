@@ -81,14 +81,14 @@ public class BenefitServiceImpl implements BenefitService {
 	@Override
 	public BenefitResponseDto update(BenefitRequestDto benefitRequest) {
 		Benefit updatedBenefit = this.modelMapper.map(benefitRequest, Benefit.class);
-		boolean validBenefitId = this.benefitRepository.findById(benefitRequest.getId()).isPresent();Benefit benefit = modelMapper.map(benefitRequest, Benefit.class);
+		boolean validBenefitId = this.benefitRepository.findById(benefitRequest.getId()).isPresent();
 		Optional<Supplier> supplier = this.supplierRepository.findById(benefitRequest.getSupplierId());
 		Optional<BenefitType> benefitType = this.benefitTypeRepository.findById(benefitRequest.getTypeId());
 		Optional<Locality> locality = this.localityRepository.findById(benefitRequest.getLocalityId());
 		if(validBenefitId && supplier.isPresent() && benefitType.isPresent() && locality.isPresent()) {
-			benefit.setSupplier(supplier.get());
-			benefit.setType(benefitType.get());
-			benefit.setLocality(locality.get());
+			updatedBenefit.setSupplier(supplier.get());
+			updatedBenefit.setType(benefitType.get());
+			updatedBenefit.setLocality(locality.get());
 			return this.modelMapper.map(this.benefitRepository.save(updatedBenefit), BenefitResponseDto.class);
 		}
 		throw new EntityNotFoundException("No se puede actualizar el beneficio, revise dependencias");

@@ -2,14 +2,12 @@ package com.onefull.api.dto;
 
 import java.util.List;
 
-import com.onefull.api.model.Locality;
-
 public class PlanResponseDto {
 	private Long id;
 	private String name;
 	private String description;
 	private Double price;
-	private Locality locality;
+	private LocalityDto locality;
 	private List<String> features;
 	
 	public Long getId() {
@@ -36,10 +34,10 @@ public class PlanResponseDto {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	public Locality getLocality() {
+	public LocalityDto getLocality() {
 		return locality;
 	}
-	public void setLocality(Locality locality) {
+	public void setLocality(LocalityDto locality) {
 		this.locality = locality;
 	}
 	public List<String> getFeatures() {

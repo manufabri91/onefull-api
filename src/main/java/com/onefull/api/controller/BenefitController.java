@@ -38,7 +38,7 @@ public class BenefitController {
 		return this.benefitService.fetchAllBenefits();
 	}
 	
-	@GetMapping(value = "/{benefitId}")
+	@GetMapping("/{benefitId}")
     @ResponseStatus(HttpStatus.OK)
 	public BenefitResponseDto getById(@PathVariable Long benefitId) {
 		return this.benefitService.fetchById(benefitId);

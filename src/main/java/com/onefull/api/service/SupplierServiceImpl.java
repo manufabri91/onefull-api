@@ -56,6 +56,7 @@ public class SupplierServiceImpl implements SupplierService {
 	public SupplierDto update(SupplierDto supplierRequest) {
 		Optional<Supplier> supplier = this.repository.findById(supplierRequest.getId());
 		if(!supplier.isPresent()) throw new EntityNotFoundException("No existe el proveedor que intenta actualizar");
+		this.modelMapper.map(supplierRequest, supplier.get());
 		return this.modelMapper.map(this.repository.save(supplier.get()), SupplierDto.class);
 	}
 	

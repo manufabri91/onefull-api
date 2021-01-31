@@ -35,10 +35,10 @@ public class LocalityServiceImpl implements LocalityService {
 
 	@Override
 	public LocalityDto update(LocalityDto localityRequest) {
-		boolean validLocality = this.localityRepository.findById(localityRequest.getId()).isPresent();
-		if (!validLocality) throw new EntityNotFoundException("No se encontró la localidad con el ID indicado");
-		Locality updatedLocality = this.modelMapper.map(localityRepository, Locality.class);
-		return this.modelMapper.map(this.localityRepository.save(updatedLocality), LocalityDto.class);
+		Optional<Locality> locality = this.localityRepository.findById(localityRequest.getId());
+		if (!locality.isPresent()) throw new EntityNotFoundException("No se encontró la localidad con el ID indicado");
+		this.modelMapper.map(localityRequest, locality.get());
+		return this.modelMapper.map(this.localityRepository.save(locality.get()), LocalityDto.class);
 	}
 
 	@Override
