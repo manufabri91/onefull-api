@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 import com.onefull.api.dto.BenefitRequestDto;
 import com.onefull.api.dto.BenefitResponseDto;
 import com.onefull.api.model.Benefit;
+import com.onefull.api.model.BenefitType;
+import com.onefull.api.model.Locality;
+import com.onefull.api.model.Supplier;
 import com.onefull.api.repository.BenefitRepository;
 import com.onefull.api.repository.BenefitTypeRepository;
 import com.onefull.api.repository.LocalityRepository;
@@ -45,10 +48,13 @@ public class BenefitServiceImpl implements BenefitService {
 	@Override
 	public BenefitResponseDto save(BenefitRequestDto benefitRequest) {
 		Benefit benefit = modelMapper.map(benefitRequest, Benefit.class);
-		boolean validSupplierId = this.supplierRepository.findById(benefitRequest.getSupplierId()).isPresent();
-		boolean validTypeId = this.benefitTypeRepository.findById(benefitRequest.getTypeId()).isPresent();
-		boolean validLocalityId = this.localityRepository.findById(benefitRequest.getLocalityId()).isPresent();
-		if(validSupplierId && validTypeId && validLocalityId) {
+		Optional<Supplier> supplier = this.supplierRepository.findById(benefitRequest.getSupplierId());
+		Optional<BenefitType> benefitType = this.benefitTypeRepository.findById(benefitRequest.getTypeId());
+		Optional<Locality> locality = this.localityRepository.findById(benefitRequest.getLocalityId());
+		if(supplier.isPresent() && benefitType.isPresent() && locality.isPresent()) {
+			benefit.setSupplier(supplier.get());
+			benefit.setType(benefitType.get());
+			benefit.setLocality(locality.get());
 			return this.modelMapper.map(this.benefitRepository.save(benefit), BenefitResponseDto.class);
 		}
 		throw new EntityNotFoundException("No se puede crear el beneficio, revise dependencias");
@@ -75,11 +81,14 @@ public class BenefitServiceImpl implements BenefitService {
 	@Override
 	public BenefitResponseDto update(BenefitRequestDto benefitRequest) {
 		Benefit updatedBenefit = this.modelMapper.map(benefitRequest, Benefit.class);
-		boolean validBenefitId = this.benefitRepository.findById(benefitRequest.getId()).isPresent();
-		boolean validSupplierId = this.supplierRepository.findById(benefitRequest.getSupplierId()).isPresent();
-		boolean validTypeId = this.benefitTypeRepository.findById(benefitRequest.getTypeId()).isPresent();
-		boolean validLocalityId = this.localityRepository.findById(benefitRequest.getLocalityId()).isPresent();
-		if(validBenefitId && validSupplierId && validTypeId && validLocalityId) {
+		boolean validBenefitId = this.benefitRepository.findById(benefitRequest.getId()).isPresent();Benefit benefit = modelMapper.map(benefitRequest, Benefit.class);
+		Optional<Supplier> supplier = this.supplierRepository.findById(benefitRequest.getSupplierId());
+		Optional<BenefitType> benefitType = this.benefitTypeRepository.findById(benefitRequest.getTypeId());
+		Optional<Locality> locality = this.localityRepository.findById(benefitRequest.getLocalityId());
+		if(validBenefitId && supplier.isPresent() && benefitType.isPresent() && locality.isPresent()) {
+			benefit.setSupplier(supplier.get());
+			benefit.setType(benefitType.get());
+			benefit.setLocality(locality.get());
 			return this.modelMapper.map(this.benefitRepository.save(updatedBenefit), BenefitResponseDto.class);
 		}
 		throw new EntityNotFoundException("No se puede actualizar el beneficio, revise dependencias");

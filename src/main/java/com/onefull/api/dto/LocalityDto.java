@@ -1,13 +1,14 @@
 package com.onefull.api.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class LocalityDto {
 	private Long id;
 
 	@NotBlank
 	private String name;
-	@NotBlank
+	@NotNull
 	private Boolean hasService;
 
 	public Long getId() {

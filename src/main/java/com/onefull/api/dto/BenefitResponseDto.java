@@ -2,22 +2,17 @@ package com.onefull.api.dto;
 
 import java.time.LocalDate;
 
-import com.onefull.api.model.BenefitType;
-import com.onefull.api.model.Locality;
-import com.onefull.api.model.Supplier;
-
-
 public class BenefitResponseDto {
 	
 	private Long id;
-	private Supplier supplier;
+	private SupplierDto supplier;
 	private String title;
 	private String description;
 	private String descriptionImageUrl;
 	private LocalDate dateFrom;
 	private LocalDate dateTo;
-	private BenefitType type;
-	private Locality locality;
+	private BenefitTypeDto type;
+	private LocalityDto locality;
 
 	public Long getId() {
 		return id;
@@ -25,10 +20,10 @@ public class BenefitResponseDto {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Supplier getSupplier() {
+	public SupplierDto getSupplier() {
 		return supplier;
 	}
-	public void setSupplier(Supplier supplier) {
+	public void setSupplier(SupplierDto supplier) {
 		this.supplier = supplier;
 	}
 	public String getTitle() {
@@ -61,16 +56,16 @@ public class BenefitResponseDto {
 	public void setDateTo(LocalDate dateTo) {
 		this.dateTo = dateTo;
 	}
-	public BenefitType getType() {
+	public BenefitTypeDto getType() {
 		return type;
 	}
-	public void setType(BenefitType type) {
+	public void setType(BenefitTypeDto type) {
 		this.type = type;
 	}
-	public Locality getLocality() {
+	public LocalityDto getLocality() {
 		return locality;
 	}
-	public void setLocality(Locality localityId) {
+	public void setLocality(LocalityDto localityId) {
 		this.locality = localityId;
 	}	
 	

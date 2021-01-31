@@ -12,7 +12,7 @@ public class PlanRequestDto {
 	private String name;
 	@NotBlank
 	private String description;
-	@NotBlank
+	@NotNull
 	private Double price;
 	@NotNull
 	private Long localityId;
