@@ -9,6 +9,7 @@ import javax.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import static org.springframework.data.jpa.domain.Specification.where;
 
 import com.onefull.api.dto.BenefitRequestDto;
 import com.onefull.api.dto.BenefitResponseDto;
@@ -16,6 +17,7 @@ import com.onefull.api.model.Benefit;
 import com.onefull.api.model.BenefitType;
 import com.onefull.api.model.Locality;
 import com.onefull.api.model.Supplier;
+import com.onefull.api.model.specifications.BenefitSpecification;
 import com.onefull.api.repository.BenefitRepository;
 import com.onefull.api.repository.BenefitTypeRepository;
 import com.onefull.api.repository.LocalityRepository;
@@ -70,9 +72,13 @@ public class BenefitServiceImpl implements BenefitService {
 	}
 
 	@Override
-	public List<BenefitResponseDto> fetchAllBenefits() {
+	public List<BenefitResponseDto> fetchAllBenefits(Optional<Long> typeId, Optional<Long> localityId, Optional<Long> supplierId) {
 		return this.benefitRepository
-				.findAll()
+				.findAll(
+					where(BenefitSpecification.equalTypeId(typeId))
+					.and(BenefitSpecification.equalLocalityId(localityId))
+					.and(BenefitSpecification.equalSupplierId(supplierId))
+				)
 				.stream()
 				.map(benefit -> modelMapper.map(benefit, BenefitResponseDto.class))
 				.collect(Collectors.toList());

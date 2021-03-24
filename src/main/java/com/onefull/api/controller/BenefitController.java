@@ -1,6 +1,7 @@
 package com.onefull.api.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +23,7 @@ import com.onefull.api.dto.BenefitResponseDto;
 import com.onefull.api.service.BenefitService;
 
 @RestController
-@RequestMapping("/benefit")
+@RequestMapping("/beneficios")
 public class BenefitController {
 	
 	private BenefitService benefitService;
@@ -34,8 +36,10 @@ public class BenefitController {
 
 	@GetMapping
     @ResponseStatus(HttpStatus.OK)
-	public List<BenefitResponseDto> getAllBenefits() {
-		return this.benefitService.fetchAllBenefits();
+	public List<BenefitResponseDto> getAllBenefits(@RequestParam(name = "rubro") Optional<Long> typeId,
+													@RequestParam(name = "localidad") Optional<Long> localityId,
+													@RequestParam(name = "proveedor") Optional<Long> supplierId) {
+		return this.benefitService.fetchAllBenefits(typeId, localityId, supplierId);
 	}
 	
 	@GetMapping("/{benefitId}")

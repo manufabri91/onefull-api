@@ -20,7 +20,7 @@ import com.onefull.api.dto.BenefitTypeDto;
 import com.onefull.api.service.BenefitTypeService;
 
 @RestController
-@RequestMapping("/benefitType")
+@RequestMapping("/rubros")
 public class BenefitTypeController {
 
 	private BenefitTypeService benefitTypeService;

@@ -20,7 +20,7 @@ import com.onefull.api.dto.LocalityDto;
 import com.onefull.api.service.LocalityService;
 
 @RestController
-@RequestMapping("/locality")
+@RequestMapping("/localidades")
 public class LocalityController {
 	
 	private LocalityService localityService;

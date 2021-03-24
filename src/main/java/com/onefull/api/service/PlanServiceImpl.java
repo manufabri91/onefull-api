@@ -8,12 +8,14 @@ import javax.persistence.EntityNotFoundException;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import static org.springframework.data.jpa.domain.Specification.where;
 import org.springframework.stereotype.Service;
 
 import com.onefull.api.dto.PlanRequestDto;
 import com.onefull.api.dto.PlanResponseDto;
 import com.onefull.api.model.Locality;
 import com.onefull.api.model.Plan;
+import com.onefull.api.model.specifications.PlanSpecification;
 import com.onefull.api.repository.LocalityRepository;
 import com.onefull.api.repository.PlanRepository;
 
@@ -61,8 +63,11 @@ public class PlanServiceImpl implements PlanService {
 	}
 
 	@Override
-	public List<PlanResponseDto> fetchAllPlans() {
-		return this.planRepository.findAll()
+	public List<PlanResponseDto> fetchAllPlans(Optional<Long> localityId, Optional<Double> minPrice, Optional<Double> maxPrice) {
+		return this.planRepository.findAll(
+				where(PlanSpecification.equalLocalityId(localityId))
+				.and(PlanSpecification.betweenPrices(minPrice, maxPrice))
+			)
 			.stream()
 			.map(plan -> this.modelMapper.map(plan, PlanResponseDto.class))
 			.collect(Collectors.toList());

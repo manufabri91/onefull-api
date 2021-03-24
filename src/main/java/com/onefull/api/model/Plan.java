@@ -23,7 +23,7 @@ public class Plan {
 	@NotBlank(message = "El nombre es requerido")
 	private String name;
 	@NotNull
-	@NotBlank(message = "La descripción es requerida")
+	@NotBlank(message = "La descripcion es requerida")
 	private String description;
 	@NotNull
 	@Min(value = 1, message= "El valor minimo es $1")

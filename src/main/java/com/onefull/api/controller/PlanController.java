@@ -1,6 +1,7 @@
 package com.onefull.api.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +23,7 @@ import com.onefull.api.dto.PlanResponseDto;
 import com.onefull.api.service.PlanService;
 
 @RestController
-@RequestMapping("/plan")
+@RequestMapping("/planes")
 public class PlanController {
 	private PlanService planService;
 
@@ -32,8 +34,10 @@ public class PlanController {
 	
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
-	public List<PlanResponseDto> getAllPlans() {
-		return this.planService.fetchAllPlans();
+	public List<PlanResponseDto> getAllPlans(@RequestParam(name = "localidad") Optional<Long> localityId,
+												@RequestParam(name = "precio_min") Optional<Double> minPrice,
+												@RequestParam(name = "precio_max") Optional<Double> maxPrice) {
+		return this.planService.fetchAllPlans(localityId, minPrice, maxPrice);
 	}
 	
 	@GetMapping("/{planId}")

@@ -19,7 +19,7 @@ import com.onefull.api.dto.SupplierDto;
 import com.onefull.api.service.SupplierService;
 
 @RestController
-@RequestMapping("/supplier")
+@RequestMapping("/proveedores")
 public class SupplierController {
 	
 
@@ -42,7 +42,7 @@ public class SupplierController {
 		return this.supplierService.fetchById(supplierId);
 	}
 	
-	@GetMapping("/{supplierId}/benefits")
+	@GetMapping("/{supplierId}/beneficios")
 	@ResponseStatus(HttpStatus.OK)
 	public List<BenefitResponseDto> getBenefitsBySupplierId(@PathVariable Long supplierId) {
 		return this.supplierService.fetchBenefitsBySupplierId(supplierId);
