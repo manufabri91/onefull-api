@@ -1,0 +1,5 @@
+spring:
+  cloud:
+    config:
+      uri:
+      - https://manuelfabri-config-server.herokuapp.com/
