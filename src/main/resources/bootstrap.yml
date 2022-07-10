@@ -3,3 +3,5 @@ spring:
     config:
       uri:
       - https://configserver.manuelfabri.com/
+encrypt:
+  key: ${DECRYPT_KEY}
